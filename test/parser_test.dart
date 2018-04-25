@@ -362,21 +362,21 @@ main() {
     group("from parse()", () {
       group("are null", () {
         test("with no sourcesContent field", () {
-          var mapping = parseJson(EXPECTED_MAP);
+          var mapping = parseJson(EXPECTED_MAP) as SingleMapping;
           expect(mapping.files, equals([null]));
         });
 
         test("with null sourcesContent values", () {
           var map = new Map.from(EXPECTED_MAP);
           map["sourcesContent"] = [null];
-          var mapping = parseJson(map);
+          var mapping = parseJson(map) as SingleMapping;;
           expect(mapping.files, equals([null]));
         });
 
         test("with a too-short sourcesContent", () {
           var map = new Map.from(EXPECTED_MAP);
           map["sourcesContent"] = [];
-          var mapping = parseJson(map);
+          var mapping = parseJson(map) as SingleMapping;;
           expect(mapping.files, equals([null]));
         });
       });
@@ -384,7 +384,7 @@ main() {
       test("are parsed from sourcesContent", () {
         var map = new Map.from(EXPECTED_MAP);
         map["sourcesContent"] = ["hello, world!"];
-        var mapping = parseJson(map);
+        var mapping = parseJson(map) as SingleMapping;;
 
         var file = mapping.files[0];
         expect(file.url, equals(Uri.parse("input.dart")));

@@ -5,7 +5,6 @@
 /// Contains the top-level function to parse source maps version 3.
 library source_maps.parser;
 
-import 'dart:collection';
 import 'dart:convert';
 
 import 'package:source_span/source_span.dart';
@@ -470,8 +469,7 @@ class SingleMapping extends Mapping {
     if (targetUrl != null) result['file'] = targetUrl;
 
     if (includeSourceContents) {
-      result['sourcesContent'] =
-          files.map((file) => file == null ? null : file.getText(0)).toList();
+      result['sourcesContent'] = files.map((file) => file?.getText(0)).toList();
     }
 
     return result;
