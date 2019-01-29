@@ -84,15 +84,15 @@ main() {
         _span(2, 1, map, file),
         "line 2, column 1: \n"
         "  ,\n"
-        "1 | 0*23456789\n"
-        "  |           ^\n"
+        "2 | 0*23456789\n"
+        "  | ^\n"
         "  '");
     expect(
         _span(2, 8, map, file),
         "line 2, column 1: \n"
         "  ,\n"
-        "1 | 0*23456789\n"
-        "  |           ^\n"
+        "2 | 0*23456789\n"
+        "  | ^\n"
         "  '");
 
     // Line 3 is modified part way: mappings before the edits have the right
@@ -101,15 +101,15 @@ main() {
         _span(3, 1, map, file),
         "line 3, column 1: \n"
         "  ,\n"
-        "2 | 01*3456789\n"
-        "  |           ^\n"
+        "3 | 01*3456789\n"
+        "  | ^\n"
         "  '");
     expect(
         _span(3, 5, map, file),
         "line 3, column 1: \n"
         "  ,\n"
-        "2 | 01*3456789\n"
-        "  |           ^\n"
+        "3 | 01*3456789\n"
+        "  | ^\n"
         "  '");
 
     // Start of edits map to beginning of the edit secion:
@@ -145,8 +145,8 @@ main() {
         _span(5, 1, map, file),
         "line 4, column 1: \n"
         "  ,\n"
-        "3 | abcdefghij\n"
-        "  |           ^\n"
+        "4 | abcdefghij\n"
+        "  | ^\n"
         "  '");
     // _ (in a___cd...)
     expect(
@@ -184,15 +184,15 @@ main() {
         _span(6, 1, map, file),
         "line 5, column 1: \n"
         "  ,\n"
-        "4 | abcd*fghij\n"
-        "  |           ^\n"
+        "5 | abcd*fghij\n"
+        "  | ^\n"
         "  '");
     expect(
         _span(6, 8, map, file),
         "line 5, column 1: \n"
         "  ,\n"
-        "4 | abcd*fghij\n"
-        "  |           ^\n"
+        "5 | abcd*fghij\n"
+        "  | ^\n"
         "  '");
   });
 }
