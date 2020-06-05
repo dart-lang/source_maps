@@ -1,3 +1,7 @@
+## 1.0.0-dev
+
+* Migrate to null safety
+
 ## 0.10.9
 
 * Fix a number of document comment issues.
