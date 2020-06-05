@@ -350,7 +350,7 @@ class SingleMapping extends Mapping {
         _mapUrl = mapUrl is String ? Uri.parse(mapUrl) : mapUrl,
         extensions = {} {
     var sourcesContent = map['sourcesContent'] == null
-        ? const []
+        ? const <String?>[]
         : List<String?>.from(map['sourcesContent']);
     for (var i = 0; i < urls.length && i < sourcesContent.length; i++) {
       var source = sourcesContent[i];
