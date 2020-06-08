@@ -196,6 +196,7 @@ class MappingBundle extends Mapping {
   void addMapping(SingleMapping mapping) {
     // TODO(jacobr): verify that targetUrl is valid uri instead of a windows
     // path.
+    // TODO: Remove type arg https://github.com/dart-lang/sdk/issues/42227
     var targetUrl = ArgumentError.checkNotNull<String>(
         mapping.targetUrl, 'mapping.targetUrl');
     _mappings[targetUrl] = mapping;
@@ -218,6 +219,7 @@ class MappingBundle extends Mapping {
   @override
   SourceMapSpan? spanFor(int line, int column,
       {Map<String, SourceFile>? files, String? uri}) {
+    // TODO: Remove type arg https://github.com/dart-lang/sdk/issues/42227
     uri = ArgumentError.checkNotNull<String>(uri, 'uri');
 
     // Find the longest suffix of the uri that matches the sourcemap
