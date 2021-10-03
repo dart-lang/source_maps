@@ -65,7 +65,9 @@ class TextEditTransaction {
           ..write(consumed)
           ..write(' input characters. List of edits:');
         for (var e in _edits) {
-          sb..write('\n    ')..write(e);
+          sb
+            ..write('\n    ')
+            ..write(e);
         }
         throw UnsupportedError(sb.toString());
       }
@@ -91,7 +93,7 @@ class _TextEdit implements Comparable<_TextEdit> {
   final int end;
 
   /// The replacement used by the edit, can be a string or a [NestedPrinter].
-  final replace;
+  final Object replace;
 
   _TextEdit(this.begin, this.end, this.replace);
 
@@ -114,7 +116,7 @@ String guessIndent(String code, int charOffset) {
   var lineStart = 0;
   for (var i = charOffset - 1; i >= 0; i--) {
     var c = code.codeUnitAt(i);
-    if (c == _LF || c == _CR) {
+    if (c == lineFeed || c == carriageReturn) {
       lineStart = i + 1;
       break;
     }
@@ -124,7 +126,7 @@ String guessIndent(String code, int charOffset) {
   var whitespaceEnd = code.length;
   for (var i = lineStart; i < code.length; i++) {
     var c = code.codeUnitAt(i);
-    if (c != _SPACE && c != _TAB) {
+    if (c != _space && c != _tab) {
       whitespaceEnd = i;
       break;
     }
@@ -133,7 +135,5 @@ String guessIndent(String code, int charOffset) {
   return code.substring(lineStart, whitespaceEnd);
 }
 
-const int _CR = 13;
-const int _LF = 10;
-const int _TAB = 9;
-const int _SPACE = 32;
+const int _tab = 9;
+const int _space = 32;
