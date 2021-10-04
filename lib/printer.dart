@@ -9,9 +9,7 @@ import 'package:source_span/source_span.dart';
 
 import 'builder.dart';
 import 'src/source_map_span.dart';
-
-const int lineFeed = 10;
-const int carriageReturn = 13;
+import 'src/utils.dart';
 
 /// A simple printer that keeps track of offset locations and records source
 /// maps locations.

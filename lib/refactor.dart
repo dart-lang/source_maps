@@ -11,6 +11,7 @@ library source_maps.refactor;
 import 'package:source_span/source_span.dart';
 
 import 'printer.dart';
+import 'src/utils.dart';
 
 /// Editable text transaction.
 ///
