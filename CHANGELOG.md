@@ -1,4 +1,4 @@
-# 0.10.11-dev
+# 0.10.11
 
 - Switch to `package:lints`.
 - Populate the pubspec `repository` field.
